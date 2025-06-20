@@ -11,7 +11,7 @@ const UserList = ({ token }) => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/users', {
+        const response = await axios.get('https://backendf-68e5.onrender.com/users', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUsers(response.data);
