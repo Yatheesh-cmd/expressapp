@@ -16,7 +16,7 @@ const UserList = ({ token }) => {
         });
         setUsers(response.data);
       } catch (error) {
-        toast.error('Failed to fetch users', { position: 'top-right' });
+        // toast.error('Failed to fetch users', { position: 'top-right' });
         navigate('/login');
       }
     };
