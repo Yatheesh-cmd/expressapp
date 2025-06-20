@@ -12,7 +12,7 @@ const UserDetails = ({ token }) => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/users/${id}`, {
+        const response = await axios.get(`https://backendf-68e5.onrender.com/users/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUser(response.data);
