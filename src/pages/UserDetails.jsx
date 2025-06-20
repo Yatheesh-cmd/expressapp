@@ -38,7 +38,7 @@ const UserDetails = ({ token }) => {
     if (formData.photo) data.append('photo', formData.photo);
 
     try {
-      await axios.put(`http://localhost:5000/users/${id}`, data, {
+      await axios.put(`https://backendf-68e5.onrender.com/users/${id}`, data, {
         headers: { Authorization: `Bearer ${token}` }
       });
       toast.success('User updated successfully!', { position: 'top-right' });

@@ -12,7 +12,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/register', formData);
+      await axios.post('https://backendf-68e5.onrender.com/register', formData);
       toast.success('Admin registered successfully!', { position: 'top-right' });
       navigate('/login');
     } catch (error) {

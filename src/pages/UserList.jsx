@@ -32,7 +32,7 @@ const UserList = ({ token }) => {
     if (formData.photo) data.append('photo', formData.photo);
 
     try {
-      await axios.post('http://localhost:5000/users', data, {
+      await axios.post('https://backendf-68e5.onrender.com/users', data, {
         headers: { Authorization: `Bearer ${token}` }
       });
       toast.success('User created successfully!', { position: 'top-right' });
@@ -44,7 +44,7 @@ const UserList = ({ token }) => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/users/${id}`, {
+      await axios.delete(`https://backendf-68e5.onrender.comhttps://backendf-68e5.onrender.com/users/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       toast.success('User deleted successfully!', { position: 'top-right' });
