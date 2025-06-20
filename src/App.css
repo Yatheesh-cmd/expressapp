@@ -1,0 +1,149 @@
+:root {
+  --primary-color: #6366f1;
+  --secondary-color: #f43f5e;
+  --dark-color: #1e293b;
+  --light-color: #f8fafc;
+  --success-color: #10b981;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f1f5f9;
+  color: var(--dark-color);
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+  transition: var(--transition);
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 6px 12px;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: #4f46e5;
+  transform: translateY(-1px);
+}
+
+.btn-danger {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.btn-danger:hover {
+  background-color: #e11d48;
+  transform: translateY(-1px);
+}
+
+.btn-info {
+  background-color: #0ea5e9;
+  border-color: #0ea5e9;
+}
+
+.btn-info:hover {
+  background-color: #0284c7;
+  transform: translateY(-1px);
+}
+
+.form-control {
+  border-radius: 8px;
+  padding: 8px 12px;
+  border: 1px solid #e2e8f0;
+  transition: var(--transition);
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  outline: none;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: white;
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+}
+
+.table th {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px;
+  text-align: left;
+}
+
+.table td {
+  padding: 10px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tr:hover td {
+  background-color: #f8fafc;
+}
+
+.user-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+.user-image:hover {
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.4s ease-out forwards;
+}
+
+.home-content {
+  animation: fadeIn 0.7s ease-out;
+}
+
+.feature-card {
+  transition: var(--transition);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.1);
+}
