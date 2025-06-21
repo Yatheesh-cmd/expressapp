@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Auth.css'; // Custom CSS for animations
+import './Auth.css';
+import { BASE_URL } from '../config/baseurl';
 
 const Register = () => {
   const [formData, setFormData] = useState({ username: '', password: '', email: '' });
@@ -12,7 +13,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://backendf-68e5.onrender.com/register', formData);
+      await axios.post(`${BASE_URL}/register`, formData);
       toast.success('Admin registered successfully!', { position: 'top-right' });
       navigate('/login');
     } catch (error) {
@@ -23,7 +24,6 @@ const Register = () => {
   return (
     <div className="container-fluid d-flex align-items-center justify-content-center min-vh-100 bg-light animate-fadeIn">
       <div className="row w-100 shadow-lg" style={{ maxWidth: '900px' }}>
-        {/* Left Section - Image */}
         <div className="col-md-6 d-none d-md-block p-0">
           <img
             src="https://img.freepik.com/premium-vector/register-now-labels-with-arrow-vector-banner-registration-services-blogs-websites_662353-1034.jpg?semt=ais_hybrid&w=740"
@@ -32,7 +32,6 @@ const Register = () => {
             style={{ objectFit: 'cover' }}
           />
         </div>
-        {/* Right Section - Form */}
         <div className="col-md-6 d-flex align-items-center p-4">
           <div className="w-100">
             <h2 className="text-center mb-4">Register Admin</h2>
@@ -68,6 +67,9 @@ const Register = () => {
                 Register
               </button>
             </form>
+            <p className="text-center mt-3">
+              Already have an account? <Link to="/login" className="text-primary">Login here</Link>
+            </p>
           </div>
         </div>
       </div>

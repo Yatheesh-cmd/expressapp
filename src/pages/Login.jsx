@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Auth.css'; // Custom CSS for animations
+import './Auth.css';
+import { BASE_URL } from '../config/baseurl';
 
 const Login = ({ setToken }) => {
   const [formData, setFormData] = useState({ username: '', password: '' });
@@ -12,7 +13,7 @@ const Login = ({ setToken }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://backendf-68e5.onrender.com/login', formData);
+      const response = await axios.post(`${BASE_URL}/login`, formData);
       localStorage.setItem('token', response.data.token);
       setToken(response.data.token);
       toast.success('Login successful!', { position: 'top-right' });
@@ -25,7 +26,6 @@ const Login = ({ setToken }) => {
   return (
     <div className="container-fluid d-flex align-items-center justify-content-center min-vh-100 bg-light animate-fadeIn">
       <div className="row w-100 shadow-lg" style={{ maxWidth: '900px' }}>
-        {/* Left Section - Image */}
         <div className="col-md-6 d-none d-md-block p-0">
           <img
             src="https://www.nicepng.com/png/detail/263-2636180_admin-login-png-admin-login-image-png.png"
@@ -34,7 +34,6 @@ const Login = ({ setToken }) => {
             style={{ objectFit: 'cover' }}
           />
         </div>
-        {/* Right Section - Form */}
         <div className="col-md-6 d-flex align-items-center p-4">
           <div className="w-100">
             <h2 className="text-center mb-4">Login</h2>
@@ -61,6 +60,9 @@ const Login = ({ setToken }) => {
                 Login
               </button>
             </form>
+            <p className="text-center mt-3">
+              Don't have an account? <Link to="/register" className="text-primary">Register here</Link>
+            </p>
           </div>
         </div>
       </div>

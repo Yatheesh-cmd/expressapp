@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { BASE_URL } from '../config/baseurl';
 
 const UserDetails = ({ token }) => {
   const { id } = useParams();
@@ -12,7 +13,7 @@ const UserDetails = ({ token }) => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get(`https://backendf-68e5.onrender.com/users/${id}`, {
+        const response = await axios.get(`${BASE_URL}/users/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUser(response.data);
@@ -38,7 +39,7 @@ const UserDetails = ({ token }) => {
     if (formData.photo) data.append('photo', formData.photo);
 
     try {
-      await axios.put(`https://backendf-68e5.onrender.com/users/${id}`, data, {
+      await axios.put(`${BASE_URL}/users/${id}`, data, {
         headers: { Authorization: `Bearer ${token}` }
       });
       toast.success('User updated successfully!', { position: 'top-right' });
@@ -56,7 +57,7 @@ const UserDetails = ({ token }) => {
       {user.photo && (
         <div className="text-center mb-4">
           <img
-            src={`http://localhost:5000/${user.photo}`}
+            src={`${BASE_URL}/${user.photo}`}
             alt="user"
             className="user-image rounded-circle"
             style={{ width: '150px', height: '150px', objectFit: 'cover' }}
