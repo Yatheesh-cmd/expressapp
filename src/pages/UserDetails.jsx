@@ -23,7 +23,7 @@ const UserDetails = ({ token }) => {
           username: response.data.username
         });
       } catch (error) {
-        toast.error('Failed to fetch user', { position: 'top-right' });
+        // toast.error('Failed to fetch user', { position: 'top-right' });
         navigate('/login');
       }
     };
